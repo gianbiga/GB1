@@ -19,6 +19,7 @@
     "express": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-clean-css": "^3.9.2",
     "gulp-less": "^3.5.0",
     "gulp-plumber": "*",
     "gulp-watch": "*",

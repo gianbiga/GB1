@@ -9,6 +9,7 @@ var archiver = require('archiver'); //zipa a pasta inteira
 require('./gulpfile');//lê o aquivo gulpfile, que possui as funções para compilar o less
 var copydir = require('copy-dir'); //copia pastas
 const lessVariablesToJson = require('less-variables-to-json');
+//const cors = require('cors');
 
 var app = express();
 app.use(bodyParser.json());
@@ -32,7 +33,7 @@ app.post('/api/1.0/preview', function(req, res){
 })
 
 //Download - Retorna o zipado para download (home, config ou commerce)
-app.get('/api/1.0/download/:themeID', function(req, res){
+app.get('/api/1.0/download/:themeID',function(req, res){
 	zipContent(2,'themes/'+req.params.themeID+'/'+req.params.themeID,'themes/'+req.params.themeID+'/files',req.params.themeID);
 	var file = __dirname + '/themes/'+req.params.themeID+'/'+req.params.themeID+'.zip';
  	res.download(file); // Set disposition and send it.
@@ -148,6 +149,13 @@ function compilaCss(req, res){
 	return gulp.start('default');
 
 }
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "POST , GET , PUT , DELETE , OPTIONS");
+  next();
+});
 
 
 //inicia o servidor na porta 3000

@@ -1,0 +1,445 @@
+/* -------------CSS THEME: Oracle Sales Cloud----------------- */
+/* -----------------Config Stylesheet Alt--------------------- */
+
+@charset "utf-8";
+
+
+body, td, p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+.main-model,
+h3#config-header.view-label {
+    display: none;
+}
+
+
+.items-table-content,
+.side-bar-content .items-table-content {
+	border: 1px solid #D6DFE6;
+}
+
+.side-bar-content .items-header{
+	border: 1px solid #D6DFE6;
+}
+
+
+.help-popup{
+	max-width:900px;
+	max-height:800px;
+}
+
+table.spare-grid {
+    border-width: 0px !important;
+}
+
+#rebate img,
+#campaign img {
+    border-radius: 5px;
+	height:60px;
+}
+
+#attribute-rebate .attribute-inner,
+#attribute-campaign .attribute-inner {
+    padding: 0;
+}
+
+#attribute-rebate,
+#attribute-campaign {
+    display: table;
+    margin-left: 28px;
+}
+
+.osCurrency {
+    text-align: right;
+}
+
+#osVolumeTable {
+    background: none repeat scroll 0 0 #FFFFFF;
+    width: 300px;
+	border-collapse: collapse;
+}
+
+#osVolumeTable th {
+    background-color: #636973;
+	color:#ffffff;
+}
+
+#osVolumeTable * {
+    border: 1px solid #636973;
+    border-collapse: collapse;
+	padding:5px;
+}
+
+#volumePriceInformation {
+    border-radius: 5px 5px 0 0;
+}
+
+.osVolumeText, .osCurrency {
+    color: #444444;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.attribute-inner .constraint-message {
+    background: url(../../image/Icons/noentry.png) no-repeat scroll 5px center / 16px auto #FFFFD6;
+    border: 2px solid #BB0808;
+    border-radius: 5px;
+    color: #BB0808;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px 15px 7px 25px;
+}
+
+ .attribute-inner .recommendation-message {
+	display: inline-block;
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 7px 15px 7px 25px;
+	background: url(../../image/Icons/recc_arrow.png) no-repeat scroll 4px center #F0F0F0;
+	border: 2px solid #D6DFE6 ;
+	border-radius:5px;
+}
+
+.tab-content,
+.tab-content .loading {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#enclosuresRequired-help,
+#cloudServiceType-help,
+#overrideLowQuantity-help{
+	display: inline-block;
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 7px 15px 5px 15px;
+	background-color:#D7EBFB;
+	border: 2px solid #333333;
+	border-radius:5px;
+}
+
+.array tr td.constrained {
+    border-top-color: #BB133E;
+}
+
+.constraint-message,
+.tab-constraint {
+    border-left-color: #BB133E;
+}
+
+#packagedSolutionsHelp {
+	background-color:#FFFFFF;
+	width: 600px;
+	border: 3px solid #444444;
+	border-collapse: collapse;
+	border-spacing:0;
+}
+
+.packagedTR img {
+	width: 100px;
+}
+
+.packagedTR td {
+	padding: 10px;
+	text-align:center;
+	border: 1px solid #444444;
+}
+
+.packagedTR > td:first-child {
+	text-align: left;
+	font-weight:bold;
+}
+
+.packagedTR > th {
+	font-size:13pt;
+}
+
+.packagedTR > th:first-child {
+	vertical-align: top;
+	text-align: left;
+}
+
+.packagedNone {
+	border:none !important;
+}
+
+.packagedTR:nth-child(2n+1){
+	background:#b3daf2;
+}
+
+.packagedTR:first-of-type {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.packagedTR:nth-child(2) {
+    background: none repeat scroll 0 0 #444444;
+    color: #FFFFFF;
+}
+
+.packagedTR:nth-child(2) th {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#supportRow1,
+#supportRow2,
+#supportRow3, 
+#supportRow4, 
+#supportTable,
+#volumePriceTable, 
+#volumeTableHeader2, 
+#volumeTableRow3, 
+#volumeTableRow4, 
+#volumeTableRow5, 
+#volumeTableRow6, 
+#volumeTableRow7  {
+	border-style: solid !important;
+	border-width: 2px !important;
+	border-collapse: collapse !important;
+	font-weight: bold;
+}
+
+#supportRow1, 
+#volumeTableHeader2Cell {
+	background-color: rgb(51,51,51);
+	text-align: center;
+}
+#supportRow2, 
+#volumeTableRow3, 
+#supportRow4, 
+#volumeTableRow5, 
+#volumeTableRow7 {
+	background-color: #b3daf2;
+}
+
+#supportRow3, 
+#volumeTableRow4, 
+#volumeTableRow6 {
+	background-color: rgb(255,255,255);
+}
+
+#supportCellHeader, 
+#volumeTableHeader2Cell {
+	font-weight: bold;
+	color: rgb(255, 255, 255) !important;
+}
+
+#volumeTableHeader2 {
+	background-color: rgb(99,143,176);
+}
+
+#volumeTableCell3, 
+#volumeTableHeader2Cell, 
+#supportCellHeader, 
+#supportCellRow1, 
+#supportCellRow2, 
+#supportCellRow3, 
+#supportCellRow4 {
+	border-right: solid 2px;
+	border-color: black;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#supportCellHeader, 
+#supportCellRow1, 
+#supportCellRow2, 
+#supportCellRow3, 
+#supportCellRow4, 
+#volumeTableRow3, 
+#volumeTableRow4, 
+#volumeTableRow5, 
+#volumeTableRow6, 
+#volumeTableRow7, 
+#volumeTableHeader2Cell  {
+	text-align: center;
+	padding: 10px;
+}
+
+#attribute-servers_quantity .attribute-inner .constraint-message {
+    border: 2px solid #A52A2A;
+    border-radius: 5px;
+    color: #A52A2A;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 15px 10px 40px;
+}
+
+#active-constraints {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    padding: 1px 5px 5px;
+}
+
+#active-constraints .tab-constraint {
+    background: url(../../image/Icons/noentry.png) no-repeat scroll 5px center / 16px auto #FFFFD6;
+    border: 2px solid #BB0808;
+    border-radius: 5px;
+    color: #BB0808;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px 15px 7px 25px; 
+}
+
+#active-constraints .tab-name {
+    color: #BB0808;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#active-constraints .view-header {
+    border-bottom: 2px solid;
+}
+
+#active-constraints .attr-name,
+#active-constraints .constraint-message {
+    font-weight: bold;
+}
+
+
+/* ATTRIBUTE-SPECIFIC STYLING */
+/* Attribute: Part Upload HTML */
+/* ------------------------------------------------------ */
+#partUploadHTML {
+	color: #FFFFFF;
+	padding-left: 40px;
+}
+
+
+/* Errors  */
+/* ------------------------------------------------------ */
+ul.error-text {
+    border: 2px solid #BB0808;
+}
+
+.error-text {
+    background: none repeat scroll 0 0 #FFFFD6;
+    border-radius: 5px;
+    display: table;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 4px !important;
+    width: 800px;
+}
+
+/* Array Table Properties */
+.array {
+    background-color: #FFFFFF;
+    border: 1px solid #D6DFE6;
+    border-collapse: separate;
+}
+
+.array td {
+    background-color: #FFFFFF;
+}
+
+.array thead th {
+    border: #D6DFE6 solid 1px; 
+    background: #F2F4F7;
+    height: 18px;
+    color: #000000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400; 
+    font-size: 11pt;
+    line-height: 16px;
+}
+
+.array td, .array th {
+    border: solid #D6DFE6;
+    border-width: 0 0 1px 0px;
+    background-color: #fff;
+    padding: 3px 6px;
+    vertical-align: middle;
+}
+
+.array .constrained-row td, .array .constrained-row th,
+.array .recommended-row td, .array .recommended-row th,
+.array .previous-value-row td, .array .previous-value-row th {
+    border-bottom-color: #D6DFE6;
+}
+
+.array tr td.recommended,
+.array tr td.constrained,
+.array tr td.previous-value {
+    background-color: #fff8e5;
+    border: solid #D6DFE6;
+    border-width: 3px 0 0 1px;
+}
+
+.array td.recommended + td,
+.array td.constrained + td,
+.array td.previous-value + td {
+    border-left: 1px solid #D6DFE6;
+}
+
+.array th[scope=row],
+.vertical-array th {
+    text-align: left;
+}
+
+.vertical-array th[scope=row],
+.vertical-array .array-remove-cell {
+    width: 1px;
+}
+
+.array-add, 
+.array-remove {
+    text-indent: -9999px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.horizontal-array .array-remove {
+    float: right;
+    margin-left: -16px;
+    opacity: 0;
+    -webkit-transition: opacity 0.1s ease 0s;
+    -moz-transition: opacity 0.1s ease 0s;
+    transition: opacity 0.1s ease 0s;
+}
+
+.horizontal-array th:hover .array-remove {
+    opacity: 1;
+}
+
+.array tr.selected th,
+.array tr.selected td {
+    background-color: #B9DFFF;
+}
+
+
+.array .even td, 
+.array .even th {
+    background-color: #F2F4F7!important;
+}
+
+.array tr td.previous-value {
+    border-top-color: #D6DFE6;
+}
+
+.array tr td.recommended {
+    border-top-color: #0000FF;
+}
+
+.array tr td.constrained {
+    border-top-color: #FF0000;
+}
+
+/* Navigation Correction  */
+/* ------------------------------------------------------ */
+.header-bordercolor .nav-left:after{
+	line-height: 29px;
+}
+
+/* @end */
+
+
+/* Config Flow Custom */
