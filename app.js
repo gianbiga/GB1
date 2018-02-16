@@ -8,8 +8,8 @@ var zip = new require('node-zip')();//modulo para transformar em zip
 var archiver = require('archiver'); //zipa a pasta inteira
 require('./gulpfile');//lê o aquivo gulpfile, que possui as funções para compilar o less
 var copydir = require('copy-dir'); //copia pastas
+var mkdirp = require('mkdirp'); //cria pastas
 const lessVariablesToJson = require('less-variables-to-json');
-//const cors = require('cors');
 
 var app = express();
 app.use(bodyParser.json());
@@ -47,6 +47,11 @@ app.get('/api/1.0/download/:themeID',function(req, res){
 
 //GetThemeId - Pega o ID do tema gerado pelo front e cria a estrutura de pastas
 app.get('/api/1.0/theme/:themeID', function(req, res){
+
+	mkdirp('themes/'+req.params.themeID+'/files', function (err) {
+	    if (err) console.error(err)
+	    else console.log('pow!')
+	});
 	cloneDir(req.params.themeID);
 	res.send('Directory for theme: '+req.params.themeID+' created with success!');
 })
