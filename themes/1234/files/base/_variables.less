@@ -1,0 +1,227 @@
+
+/* HOME VARIABLES */
+
+@base-path: '/bmfsweb/{cpq-host}/image/{folder-name}'; /*not-editable*/
+
+/*Home: General (1)*/ 
+/*editable*/
+@backgroundImage: "@{base-path}/bg.jpg";
+@logo:"@{base-path}/logo.png";
+@logo-width:284px;
+@logo-height:100px;
+
+/*non-editable*/
+@backgroundSize: "cover";
+@backgroundPosition: center center;
+@search-nav-display: none;
+@tabs-display: none;
+
+/*Home: Typo (2)*/
+/*editable*/
+@font-family: 'Montserrat', sans-serif;
+@font-size-base: 12px;
+
+/*non-editable*/
+@font-size-small: ceil((@font-size-base * 0.85));
+@font-size-large: ceil((@font-size-base * 1.25));
+@font-size-h3: ceil((@font-size-base * 1.5));
+
+/*General: Colors (3)*/
+/*editable*/
+@primary-color: #009CA5; /*input[text] (input bgColor, picklist bgColor, hovers, help icon, stroke header, action button)*/
+@alternate-color: #fff; /*input[text] (input color, action button alt, picklist arrow)*/
+@alternate-extreme-color:#FF4081; /*input[text] (selected tab)*/
+@gray-base: #000; /*input[text] (general text color)*/
+@warning-color: #a94442;
+
+/*non-editable*/
+@primary-color-light: lighten(@primary-color, 5%);
+@primary-color-dark: darken(@primary-color, 5%);
+
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 46.7%);
+@gray-lighter: lighten(@gray-base, 93.5%);
+@menubar-bgColor: fade(@primary-color, 10%); 
+
+/*General: Buttons (3)*/
+/*editable*/
+@button-color: @alternate-color;
+@button-bgColor: @primary-color;
+@button-hoverColor: @button-color;
+@button-hoverBgColor: darken(@button-bgColor, 10%);
+
+/*non-editable*/
+/*ALTERNATE BUTTON VARIABLES*/
+@button-alternate-color: @primary-color;
+@button-alternate-bgColor: @alternate-color;
+@button-alternate-hoverColor: @button-alternate-color;
+@button-alternate-hoverBgColor: @button-alternate-bgColor;
+
+/*LINK BUTTON VARIABLES*/
+@button-link-color: @primary-color;
+@button-link-hoverColor: @alternate-color;
+@button-link-bgColor: transparent;
+@button-link-hoverbg: @primary-color;
+
+
+/* CONFIG VARIABLES */
+
+/*Config: General (1)*/
+/*editable*/
+@main-content-marginTop:30px;
+@main-content-width:70%;
+@pricingContent-display: none; /*<- avaliar o impacto disso */
+@bottomBar-display: block; 
+@recommendation-section-display: block;
+
+/*non-editable*/
+@cfg-backgroundImage: @backgroundImage;
+@cfg-backgroundSize: @backgroundSize;
+@cfg-backgroundPosition: @backgroundPosition;
+
+@logo-cfg: @logo;
+@logo-cfg-margin:0 auto;
+@logo-cfg-width: @logo-width; 
+@logo-cfg-height: @logo-height;
+@logo-cfg-display: block;
+
+@button-bar-display: block;
+@button-startover-display: block;
+@pipelineViewer-display: none;
+@button-update-display: block;
+
+
+/*Config: Tabs (2)*/
+/*editable*/
+@tab-content-padding: 0;
+@tab-strip-bgColor:@primary-color-light;
+@tab-active-borderBottomColor:@alternate-extreme-color;
+
+/*non-editable*/
+@tab-text-color:@alternate-color;
+@tab-strip-borderBottomColor:transparent;
+@tab-hover-bgColor: lighten(@primary-color, 3%);
+@tab-active-text-color:~"@{alternate-color}!important";
+@tab-active-bgColor:~"@{primary-color}!important";
+
+
+/*Config: Fieldset and Fields (3)*/
+/*editable*/
+@input-bgColor: fade(@primary-color, 60);
+@input-color: @alternate-color;
+@input-borderColor: transparent; 
+@input-padding: 8px;
+@input-minHeight:35px;
+@input-borderRadius:0px;
+
+
+/*non-editable*/
+/*HEADER & FIELDSET VARIABLES*/
+@groupheader-strokeColor: fade(@primary-color, 70);
+@groupheader-margin:30px;
+@groupheader-fontSize:~"@{font-size-h3}!important";
+@groupheader-textTransform:uppercase;
+@group-padding: 0;
+
+/*ATTRIBUTES VARIABLES*/
+@attr-padding: 5px;
+
+/*INPUT VARIABLES*/
+@input-textAlign:left;
+@input-fontSize: @font-size-large;
+@input-focus-bgColor:@input-bgColor;
+@input-focus-color:@input-color;
+@input-focus-borderColor: @input-borderColor;
+
+@input-message-background:@gray;
+@input-message-color:@alternate-color;
+@input-message-borderRadius:3px;
+
+/*DROPDOWN VARIABLES*/
+@dropdown-maxHeight:@input-minHeight;
+@dropdown-bgColor:@input-bgColor;
+@dropdown-borderColor:@input-borderColor;
+
+/*DEFAULT PICKLIST (ITEM) VARIABLES*/
+@picklist-mask-bgColor: fade(@gray, 60%);
+@picklist-padding:10px;
+@picklist-margin: @picklist-padding;
+@picklist-bgColor:transparent;
+@picklist-borderSize:0;
+@picklist-borderColor:transparent;
+@picklist-color: @primary-color;
+@picklist-hover-bgColor: fade(@primary-color, 10%);
+
+@picklist-selected-borderColor:transparent;
+@picklist-selected-bgColor: fade(@primary-color, 50%);
+@picklist-selected-color:@alternate-color;
+
+/*VERTICAL PICKLIST VARIABLES*/
+@picklist-dropdown-bgColor: @alternate-color;
+@picklist-dropdown-padding: @picklist-padding;
+@picklist-dropdown-borderSize: @picklist-borderSize;
+@picklist-dropdown-borderColor: @picklist-borderColor;
+
+/*MAIN PICKLIST VARIABLES*/
+@picklist-main-padding: @picklist-padding * 2;
+@picklist-main-marginRight: @picklist-margin * 2;
+@picklist-main-fontSize: @font-size-large;
+@picklist-main-fontWeight: 700;
+@picklist-main-selected-bgColor:@picklist-selected-bgColor;
+@picklist-main-hover-bgColor:@picklist-hover-bgColor;
+
+
+/*Config: Arraylist (4)*/
+/*editable*/
+@arrayList-bgColor:#fff;
+@arrayList-borderColor:@gray-lighter;
+@arrayList-padding:10px;
+
+/*non-editable*/
+
+/*ARRAYLIST GENERAL*/
+@arrayList-overflow:hidden;
+@arrayList-add-image:"@{base-path}/array-add.png";
+@arrayList-remove-image:"@{base-path}/array-remove.png";
+
+/*ARRAYLIST HEADER VARIABLES*/
+@arrayList-header-bgColor:@arrayList-bgColor;
+@arrayList-header-fontSize: ~"@{font-size-base}!important";
+@arrayList-header-fontWeight:500;
+@arrayList-header-color:~"@{gray}!important";
+
+/*ARRAYLIST INPUT VARIABLES*/
+@arrayList-input-padding:@input-padding;
+@arrayList-input-fontSize:@font-size-base;
+@arrayList-input-borderRadius:@input-borderRadius;
+@arrayList-input-bgColor:@gray-lighter;
+@arrayList-input-color:@gray;
+@arrayList-input-minHeight:38px;
+
+
+/* OTHERS VARIABLES */
+
+/*Others: Loader*/
+/*editable*/
+@loader-bgColor: @alternate-color; 
+@loader-color: @primary-color;
+@loader-overlay-bgColor: transparent; /*default: rgba(0,0,0,0.5);*/
+@loader-icon: "autorenew"; /*dropdownlist spin icons*/
+
+/*non-editable*/
+@loader-padding: 15px;
+@loader-size:56px;
+@active-constraints-margin:10px;
+@active-constraints-padding:10px;
+
+
+/* COMMERCE VARIABLES */
+
+/*Commerce: General */
+/*non-editable*/
+@commerce-backgroundImage: @backgroundImage;
+@commerce-backgroundSize: @backgroundSize;
+@commerce-backgroundPosition: @backgroundPosition;
+
+/* TRANSACTION LIST VARIABLES */
