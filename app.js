@@ -39,7 +39,6 @@ app.get('/api/1.0/download/:themeID', function(req, res){
 })
 
 //GetThemeId - Pega o ID do tema gerado pelo front e cria a estrutura de pastas
-// themes>ID>bg.jpg/logo.png/zip/temp(css)
 app.get('/api/1.0/theme/:themeID', function(req, res){
 	cloneDir(req.params.themeID);
 	res.send('Directory for theme: '+req.params.themeID+' created with success!');
@@ -152,6 +151,6 @@ function compilaCss(req, res){
 
 
 //inicia o servidor na porta 3000
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log("Hello Server!");
 })
