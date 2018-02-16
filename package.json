@@ -1,12 +1,12 @@
 {
-  "name": "gb1",
+  "name": "Theme Builder",
   "version": "1.0.0",
-  "description": "My App",
+  "description": "Builder to style CPQ themes",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "GB",
+  "author": "Gianlucca Bigarelli and Luis Felipe Nunes",
   "license": "ISC",
   "dependencies": {
     "archiver": "^2.1.1",
