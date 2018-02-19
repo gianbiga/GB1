@@ -39,7 +39,7 @@ app.post('/api/1.0/preview', function(req, res){
 			if(err){throw err;}
 			res.send(data);
 		})
-	}, 1000);
+	}, 1500);
 })
 
 //Download - Retorna o zipado para download (home, config ou commerce)
@@ -148,7 +148,7 @@ function zipContent(zipType,zipPathName,zippedPath,zippedName){
 function compilaCss(req, res){
 
 	//Funcao para ler o arquivo "_variables.less"
-	fs.readFile("less/_variables.less", "utf8", function(err, data){
+	fs.readFile("base/_variables.less", "utf8", function(err, data){
 		if(err){throw err;}
 
 		lessVariablesToJson(data).then((result) => {
