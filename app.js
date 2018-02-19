@@ -1,3 +1,4 @@
+
 var express = require('express');//declara o módulo express quando ele já estiver instalado
 var path = require('path');//declara o módulo path, que já vem instalado
 var bodyParser = require('body-parser');
@@ -167,6 +168,11 @@ function compilaCss(req, res){
 			}
 
 		fs.writeFile("less/new_variables.less", lessFinal, (err) => {
+			if(err) throw err;
+			//console.log("Arquivo Salvo!");
+		});
+
+		fs.writeFile("base/new_variables.less", lessFinal, (err) => {
 			if(err) throw err;
 			//console.log("Arquivo Salvo!");
 		});
