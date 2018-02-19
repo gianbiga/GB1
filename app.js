@@ -10,6 +10,7 @@ require('./gulpfile');//lê o aquivo gulpfile, que possui as funções para comp
 var copydir = require('copy-dir'); //copia pastas
 var mkdirp = require('mkdirp'); //cria pastas
 const lessVariablesToJson = require('less-variables-to-json');
+var dashify = require('dashify'); //Convert a camelcase or space-separated string to a dash-separated string
 
 var app = express();
 app.use(bodyParser.json());
@@ -18,12 +19,14 @@ let json;
 //Agora, é possível criar arquivos dentro dessa pasta que sobrescreverão o callback abaixo, como uma página index.html
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Add CORS
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "POST , GET , PUT , DELETE , OPTIONS");
   next();
 });
+
 
 /*Requests*/
 
@@ -35,7 +38,7 @@ app.post('/api/1.0/preview', function(req, res){
 			if(err){throw err;}
 			res.send(data);
 		})
-	}, 500);
+	}, 1000);
 })
 
 //Download - Retorna o zipado para download (home, config ou commerce)
@@ -56,6 +59,20 @@ app.get('/api/1.0/theme/:themeID', function(req, res){
 	res.send('Directory for theme: '+req.params.themeID+' created with success!');
 })
 
+/*
+var less = require('less/lib/less-node');
+*/
+/*var options = {};
+options['modifyVars'] = {'color1' : 'blue', '@color2': 'darkblue'};
+
+
+less.render('@color1: red; @color2:yellow; t {color1: @color1; color2: @color2;}', options)
+.then(function(output) {
+// output.css = string of css
+// output.map = undefined
+console.log(output.css);
+});
+*/
 
 /*Functions*/
 
@@ -125,6 +142,7 @@ function zipContent(zipType,zipPathName,zippedPath,zippedName){
 		archive.finalize();
 }
 
+
 //Recebe json com alterações do CSS do Front, gera um novo variables.less (new_variables.less) e compila o home/config/commerce.less
 function compilaCss(req, res){
 
@@ -139,7 +157,7 @@ function compilaCss(req, res){
 			for(keyFile in result){
 				c=0;
 				for(keyAPI in body){
-					if(keyFile == '@'+keyAPI){
+					if(keyFile == '@'+dashify(keyAPI)){
 						result[keyFile] = body[keyAPI];
 					}
 				}
@@ -163,5 +181,5 @@ function compilaCss(req, res){
 
 //inicia o servidor na porta 3000
 app.listen(process.env.PORT || 3000, function(){
-	console.log("Hello Server!");
+	console.log("Run Builder Run!");
 })

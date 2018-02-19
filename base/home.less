@@ -1,0 +1,129 @@
+@import (inline) "css/home.css";
+@import "_fonts";
+@import "_variables";
+@import "_mixins";
+
+/**** Custom Style ****/
+
+body, html {
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	overflow-x: hidden;
+}
+
+.icon {
+	.material-icon("help_outline");
+}
+
+* {
+	font-family: @font-family!important;
+	font-size: @font-size-base;
+	color: @gray-base;
+}
+
+#content,
+#wrapper-inner,
+#wrapper, 
+table.page-content { 
+	background: transparent!important; 
+}
+
+body, body.logged-in, body.login-view {
+	.background-cover(@background-image, @background-position);
+}
+
+#main-nav, 
+#sub-nav,
+.commerce-bordercolor, 
+.admin-bordercolor, 
+.header-bordercolor, 
+.admin-bordercolor .topcolor, 
+.commerce-bordercolor .topcolor  {
+	background-color:@menubar-bgcolor!important;
+	border: none!important;
+}
+
+.nav-links>a.header-item img,
+.nav-links nobr img,
+.nav-links nobr img:hover {
+	border:none;
+}
+
+table.page-content + table {
+	width:100%;
+	height:100%;	
+}
+
+#wrapper-inner { border:none; }
+
+.hide{ display: none!important; }
+
+#family-nav { display: @tabs-display; }
+
+#search-outer-wrapper, 
+#search-login-toggle-wrapper, 
+#serial-search-outer-wrapper { display: @searchnav-display; }
+
+#wrapper { margin-top: 100px; }
+
+.model,
+.model-summary-wrapper h3{
+	padding: 0;
+	margin:0; 
+	line-height:initial;
+	font-size: inherit;
+	width: auto;
+}
+
+.model { float:initial; }
+
+.model-summary-wrapper h3 a  {
+
+	&,
+	&:hover,
+	&:active,
+	&:visited,
+	&:link
+	{
+		display: block;
+		min-width: 186px;
+		text-align: center;
+		height: auto;
+		margin:0 auto;
+		margin-top: 70px;
+		padding: 16px 32px;
+		color: @button-link-color;
+		font-size: @font-size-large;
+		background: @button-link-bgcolor;
+		font-weight: normal;
+		transition: all 200ms ease-in-out;
+		text-decoration: none;
+		border:1px solid @button-link-color;
+	}
+}
+
+.model-summary-wrapper h3 a:hover{ 
+	background: @button-link-hover-bgcolor;
+	color: @button-link-hover-color;
+}
+
+.product-content::before {
+	display: block;
+	width: @logo-width;
+	height: @logo-height;
+	content: " ";
+	visibility: visible;
+	margin: 0 auto;
+	background: url(@logo) no-repeat; 
+}
+
+
+.model-summary-wrapper { 
+	text-align: center; 
+	& h3 {
+		display: inline-block;
+	}
+}
