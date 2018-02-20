@@ -1,7 +1,10 @@
+
 var express = require('express');//declara o módulo express quando ele já estiver instalado
 var path = require('path');//declara o módulo path, que já vem instalado
 var bodyParser = require('body-parser');
 var fs = require('fs'); //File System module para ler ou criar arquivos
+//var gulp = require('gulp');//compilador de less
+//var less = require('gulp-less'); //compilador de less
 var less = require('less/lib/less-node');
 var zip = new require('node-zip')();//modulo para transformar em zip 
 var archiver = require('archiver'); //zipa a pasta inteira
@@ -10,7 +13,6 @@ var copydir = require('copy-dir'); //copia pastas
 var mkdirp = require('mkdirp'); //cria pastas
 const lessVariablesToJson = require('less-variables-to-json');
 var dashify = require('dashify'); //Convert a camelcase or space-separated string to a dash-separated string
-var Q = require('q'); //Cascate Callbacks
 
 var app = express();
 app.use(bodyParser.json());
@@ -28,13 +30,43 @@ app.use(function(req, res, next) {
 });
 
 
+var options = {};
+options['modifyVars'] = {'logo-width' : '284px', '@logo-height': '100px'};
+
+fs.readFile("base/home.less", "utf8", function(err, data){
+	if(err){throw err;}
+	//console.log(data);
+
+		less_css = data.toString();
+
+		less.render(less_css,{ filename: path.resolve("base/home.less"),})
+		.then(function(css) {
+			console.log(css);
+		fs.writeFile("teste123.css", css.css, function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		        console.log("The file was saved!");
+		    }
+		});
+		},
+		function(error) {
+		    console.log(error);
+		});
+
+})
+
 /*Requests*/
+
 ////Preview - Retorna o css desejado (home, config ou commerce)
 app.post('/api/1.0/preview', function(req, res){
-	var page = req.body.page;
-	compilaCss(req,res,page).then(function(css){
-		res.send(css);	
-	});
+	compilaCss(req,res);
+	setTimeout(function(){
+		fs.readFile("_dist/"+req.body.page+".css", "utf8", function(err, data){
+			if(err){throw err;}
+			res.send(data);
+		})
+	}, 2000);
 })
 
 //Download - Retorna o zipado para download (home, config ou commerce)
@@ -54,6 +86,24 @@ app.get('/api/1.0/theme/:themeID', function(req, res){
 	cloneDir(req.params.themeID);
 	res.send('Directory for theme: '+req.params.themeID+' created with success!');
 })
+
+//
+//less.render();
+
+/*
+var less = require('less/lib/less-node');
+*/
+/*var options = {};
+options['modifyVars'] = {'color1' : 'blue', '@color2': 'darkblue'};
+
+
+less.render('@color1: red; @color2:yellow; t {color1: @color1; color2: @color2;}', options)
+.then(function(output) {
+// output.css = string of css
+// output.map = undefined
+console.log(output.css);
+});
+*/
 
 /*Functions*/
 
@@ -125,9 +175,7 @@ function zipContent(zipType,zipPathName,zippedPath,zippedName){
 
 
 //Recebe json com alterações do CSS do Front, gera um novo variables.less (new_variables.less) e compila o home/config/commerce.less
-function compilaCss(req, res, page){
-
-	var deferred = Q.defer();
+function compilaCss(req, res){
 
 	//Funcao para ler o arquivo "_variables.less"
 	fs.readFile("base/_variables.less", "utf8", function(err, data){
@@ -149,33 +197,17 @@ function compilaCss(req, res, page){
 				c=c=+1;
 			}
 
-			fs.writeFile("base/new_variables.less", lessFinal, (err) => {
-				if(err) throw err;
-				console.log("Arquivo Salvo!");
-
-
-					fs.readFile("base/"+page+".less", "utf8", function(err, data){
-						if(err){throw err;}
-							less_css = data;
-							less.render(less_css,{ filename: path.resolve("base/"+page+".less"),})
-							.then(function(css) {
-								if (err) {
-							        deferred.reject(new Error(err));
-							    } else {
-							        deferred.resolve(css.css);
-							        //console.log(css)
-							    }
-							},
-							function(error2) {
-							    console.log(error2);
-					});
-				})
-			});
-     	
+		fs.writeFile("less/new_variables.less", lessFinal, (err) => {
+			if(err) throw err;
+			console.log("Arquivo Salvo!");
+		});
+    	
+    	
 		})
 	})
 
-return deferred.promise;
+	//return gulp.start('default');
+
 }
 
 //inicia o servidor na porta 3000

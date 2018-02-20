@@ -942,6 +942,13 @@ div#model-ultraPowerServer4500.model,
 div#model-partUpload.model{
 	display: none;
 }
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/materialicons/v34/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
 /*Montserrat*/
 @font-face {
   font-family: 'Montserrat';
@@ -1096,13 +1103,67 @@ div#model-partUpload.model{
   font-display: block;
   src: local('Raleway Bold'), local('Raleway-Bold'), url(https://fonts.gstatic.com/s/raleway/v12/JbtMzqLaYbbbCL9X6EvaI_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
 }
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url(https://fonts.gstatic.com/s/materialicons/v34/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
-}
+/* HOME VARIABLES */
+/*not-editable*/
+/*Home: General (1)*/
+/*editable*/
+/*non-editable*/
+/*Home: Typo (2)*/
+/*editable*/
+/*non-editable*/
+/*General: Colors (3)*/
+/*editable*/
+/*input[text] (input bgColor, picklist bgColor, hovers, help icon, stroke header, action button)*/
+/*input[text] (input color, action button alt, picklist arrow)*/
+/*input[text] (selected tab)*/
+/*input[text] (general text color)*/
+/*non-editable*/
+/*General: Buttons (3)*/
+/*editable*/
+/*non-editable*/
+/*ALTERNATE BUTTON VARIABLES*/
+/*LINK BUTTON VARIABLES*/
+/* CONFIG VARIABLES */
+/*Config: General (1)*/
+/*editable*/
+/*<- avaliar o impacto disso */
+/*non-editable*/
+/*Config: Tabs (2)*/
+/*editable*/
+/*non-editable*/
+/*Config: Fieldset and Fields (3)*/
+/*editable*/
+/*non-editable*/
+/*HEADER & FIELDSET VARIABLES*/
+/*excluded*/
+/*ATTRIBUTES VARIABLES*/
+/*INPUT VARIABLES*/
+/*DROPDOWN VARIABLES*/
+/*DEFAULT PICKLIST (ITEM) VARIABLES*/
+/*VERTICAL PICKLIST VARIABLES*/
+/*MAIN PICKLIST VARIABLES*/
+/*Config: Arraylist (4)*/
+/*editable*/
+/*non-editable*/
+/*ARRAYLIST GENERAL*/
+/*ARRAYLIST HEADER VARIABLES*/
+/*ARRAYLIST INPUT VARIABLES*/
+/* OTHERS VARIABLES */
+/*Others: Loader*/
+/*editable*/
+/*default: rgba(0,0,0,0.5);*/
+/*dropdownlist spin icons*/
+/*dropdownlist with some default options*/
+/*dropdownlist with some default options*/
+/*add_box, add_circle, add_circle_outline*/
+/*clear, remove_circle, remove_circle_outline*/
+/*non-editable*/
+/* COMMERCE VARIABLES */
+/*Commerce: General */
+/*non-editable*/
+/*actionstrip*/
+/*input*/
+/* TRANSACTION LIST VARIABLES */
 /**** Custom Style ****/
 body,
 html {
@@ -1141,7 +1202,7 @@ html {
 }
 * {
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 666px;
+  font-size: 12px;
   color: #000;
 }
 #content,
@@ -1232,7 +1293,7 @@ table.page-content + table {
 }
 .product-content::before {
   display: block;
-  width: 666px;
+  width: 284px;
   height: 100px;
   content: " ";
   visibility: visible;
