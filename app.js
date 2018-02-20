@@ -5,12 +5,15 @@ var fs = require('fs'); //File System module para ler ou criar arquivos
 var less = require('less/lib/less-node');
 var zip = new require('node-zip')();//modulo para transformar em zip 
 var archiver = require('archiver'); //zipa a pasta inteira
-require('./gulpfile');//lê o aquivo gulpfile, que possui as funções para compilar o less
+//require('./gulpfile');//lê o aquivo gulpfile, que possui as funções para compilar o less
 var copydir = require('copy-dir'); //copia pastas
 var mkdirp = require('mkdirp'); //cria pastas
-const lessVariablesToJson = require('less-variables-to-json');
+//const lessVariablesToJson = require('less-variables-to-json');
 var dashify = require('dashify'); //Convert a camelcase or space-separated string to a dash-separated string
-var Q = require('q'); //Cascate Callbacks
+//var Q = require('q'); //Cascate Callbacks
+//const lessToJs = require('less-vars-to-js');
+var CleanCSS = require('clean-css'); //minify css
+
 
 var app = express();
 app.use(bodyParser.json());
@@ -28,14 +31,46 @@ app.use(function(req, res, next) {
 });
 
 
-/*Requests*/
 ////Preview - Retorna o css desejado (home, config ou commerce)
 app.post('/api/1.0/preview', function(req, res){
 	var page = req.body.page;
-	compilaCss(req,res,page).then(function(css){
-		res.send(css);	
-	});
+	var props = req.body.props;
+
+	fs.readFile("base/_variables.less", "utf8", function(err, data){
+
+		for(key in props){
+			var inputKey = dashify(key);
+			var inputValue = props[key];
+
+			var posKey = data.search(inputKey+":");
+			var pos2Dots = data.search(inputKey) + inputKey.length;
+			var possColon = data.indexOf(";",data.search(inputKey) + inputKey.length);
+
+			var key = data.slice(posKey,pos2Dots);
+			var keyValue = data.slice(posKey,possColon);
+			var value = data.slice(pos2Dots+1,possColon);
+
+			data = data.replace(keyValue, key+":"+inputValue);
+
+		}
+		fs.writeFile("base/new_variables.less", data, function(err, data){
+
+			//Compile less from less path
+			fs.readFile("less/"+page+".less", "utf8", function(err, result){
+				if(err){throw err;}
+				less.render(result,{ filename: path.resolve("less/"+page+".less")})
+					.then(function(css) {
+							fs.writeFile("_dist/"+page+".css", css.css, (err) => {});
+							//Minify CSS
+							var options = { /* options */ };
+							var minCss = new CleanCSS(options).minify(css.css);
+							res.send(minCss.styles);
+				})
+			})
+		});
+	})
 })
+
 
 //Download - Retorna o zipado para download (home, config ou commerce)
 app.get('/api/1.0/download/:themeID',function(req, res){
@@ -123,15 +158,24 @@ function zipContent(zipType,zipPathName,zippedPath,zippedName){
 		archive.finalize();
 }
 
-
 //Recebe json com alterações do CSS do Front, gera um novo variables.less (new_variables.less) e compila o home/config/commerce.less
-function compilaCss(req, res, page){
+/*function compilaCss(req, res, page){
 
 	var deferred = Q.defer();
 
 	//Funcao para ler o arquivo "_variables.less"
-	fs.readFile("base/_variables.less", "utf8", function(err, data){
+	fs.readFile("less/variables.less", "utf8", function(err, data){
 		if(err){throw err;}
+
+		var options = {};
+		options['modifyVars'] = {'@font-size-base': '219px'};
+		less.render(data, { filename: path.resolve("less/home.less") }).then(function(rep){
+			console.log(rep)
+			fs.writeFile("base/teste555.less", rep.css, (err) => {});
+		}).catch(function(rep){
+			console.log(rep)
+		});
+		return false;
 
 		lessVariablesToJson(data).then((result) => {
 			var body = req.body.props;
@@ -152,17 +196,17 @@ function compilaCss(req, res, page){
 			fs.writeFile("base/new_variables.less", lessFinal, (err) => {
 				if(err) throw err;
 				console.log("Arquivo Salvo!");
-
-
+				var options = {};
+				//options['modifyVars'] = {'@font-size-base': '219px'};
 					fs.readFile("base/"+page+".less", "utf8", function(err, data){
 						if(err){throw err;}
-							less_css = data;
-							less.render(less_css,{ filename: path.resolve("base/"+page+".less"),})
+							less.render(data,{ filename: path.resolve("base/"+page+".less"),})
 							.then(function(css) {
 								if (err) {
 							        deferred.reject(new Error(err));
 							    } else {
 							        deferred.resolve(css.css);
+							        fs.writeFile("base/teste555.less", css.css, (err) => {});
 							        //console.log(css)
 							    }
 							},
@@ -173,11 +217,11 @@ function compilaCss(req, res, page){
 			});
      	
 		})
-	})
+	})*/
 
-return deferred.promise;
+/*return deferred.promise;
 }
-
+*/
 //inicia o servidor na porta 3000
 app.listen(process.env.PORT || 3000, function(){
 	console.log("Run Builder Run!");

@@ -1,1 +1,245 @@
-@base-path:'/bmfsweb/{cpq-host}/image/{folder-name}';@background-image:"/bmfsweb/{cpq-host}/image/{folder-name}/bg.jpg";@logo:"/bmfsweb/{cpq-host}/image/{folder-name}/logo.png";@logo-width:1111px;@logo-height:100px;@background-size:"cover";@background-position:center center;@searchnav-display:none;@tabs-display:none;@font-family:'Montserrat', sans-serif;@font-size-base:1111px;@font-size-small:11px;@font-size-large:15px;@font-size-h3:18px;@primary-color:#009CA5;@alternate-color:#fff;@tertiary-color:#FF4081;@gray-base:#000;@warning-color:#a94442;@primary-color-light:#00b4bf;@primary-color-dark:#00848c;@gray-dark:#333333;@gray:#555555;@gray-light:#777777;@gray-lighter:#eeeeee;@menubar-bgcolor:rgba(0, 156, 165, 0.1);@button-color:#fff;@button-bgcolor:#009CA5;@button-hover-color:#fff;@button-hover-bgcolor:#006c72;@button-alternate-color:#009CA5;@button-alternate-bgcolor:#fff;@button-alternate-hover-color:#009CA5;@button-alternate-hover-bgcolor:#fff;@button-link-color:#009CA5;@button-link-hover-color:#fff;@button-link-bgcolor:transparent;@button-link-hover-bgcolor:#009CA5;@maincontent-margin-top:30px;@maincontent-width:80%;@pricingcontent-display:none;@bottombar-display:block;@recommendation-display:block;@cfg-background-image:"/bmfsweb/{cpq-host}/image/{folder-name}/bg.jpg";@cfg-background-size:"cover";@cfg-background-position:center center;@logo-cfg:"/bmfsweb/{cpq-host}/image/{folder-name}/logo.png";@logo-cfg-margin:0 auto;@logo-cfg-width:284px;@logo-cfg-height:100px;@logo-cfg-display:block;@buttonbar-display:block;@buttonstartover-display:block;@pipelineviewer-display:none;@buttonupdate-display:block;@tabcontent-padding:15px;@tabcontent-bgcolor:#fff;@tabstrip-bgcolor:#00b4bf;@tabitem-active-border-bottom-color:#FF4081;@tabitem-color:#fff;@tabitem-hover-bgcolor:#00aab4;@tabitem-active-color:#fff!important;@tabitem-active-bgcolor:#009CA5!important;@input-bgcolor:rgba(0, 156, 165, 0.6);@input-color:#fff;@input-border-color:transparent;@input-padding:8px;@input-min-height:35px;@input-border-radius:0px;@groupheader-stroke-color:rgba(255, 255, 255, 0.3);@groupheader-color:#fff;@groupheader-margin:30px;@groupheader-font-size:18px!important;@groupheader-text-transform:uppercase;@group-padding:15px;@group-bgcolor:#fff;@attr-padding:5px;@input-text-align:'left';@input-font-size:15px;@input-focus-bgcolor:rgba(0, 156, 165, 0.6);@input-focus-color:#fff;@input-focus-border-color:transparent;@inputmessage-bgcolor:#555555;@inputmessage-color:#fff;@inputmessage-border-radius:3px;@dropdown-max-height:35px;@dropdown-bgcolor:rgba(0, 156, 165, 0.6);@dropdown-border-color:transparent;@picklist-mask-bgcolor:rgba(85, 85, 85, 0.6);@picklist-padding:10px;@picklist-margin:10px;@picklist-bgcolor:transparent;@picklist-border-size:0;@picklist-border-color:transparent;@picklist-color:#009CA5;@picklist-hover-bgcolor:rgba(0, 156, 165, 0.1);@picklist-selected-border-color:transparent;@picklist-selected-bgcolor:rgba(0, 156, 165, 0.5);@picklist-selected-color:#fff;@picklist-dropdown-bgcolor:#fff;@picklist-dropdown-padding:10px;@picklist-dropdown-border-size:0;@picklist-dropdown-border-color:transparent;@picklist-large-padding:20px;@picklist-large-margin-right:20px;@picklist-large-font-size:15px;@picklist-large-font-weight:700;@picklist-large-selected-bgcolor:rgba(0, 156, 165, 0.5);@picklist-large-hover-bgcolor:rgba(0, 156, 165, 0.1);@arraylist-bgcolor:#fff;@arraylist-border-color:#eeeeee;@arraylist-padding:10px;@arraylist-overflow:hidden;@arraylist-header-bgcolor:#fff;@arraylist-header-font-size:12px!important;@arraylist-header-font-weight:500;@arraylist-header-color:#555555!important;@arraylist-input-padding:8px;@arraylist-input-font-size:12px;@arraylist-input-border-radius:0px;@arraylist-input-bgcolor:#eeeeee;@arraylist-input-color:#555555;@arraylist-input-min-height:38px;@loader-bgcolor:#fff;@loader-color:#009CA5;@loader-overlay-bgcolor:transparent;@loader-icon:"autorenew";@buttonstartover-icon:"restore";@buttonupdate-icon:"done";@addrow-icon:'add_circle_outline';@removerow-icon:'clear';@removerow-icon-color:#a94442;@loader-padding:15px;@loader-size:56px;@active-constraints-margin:10px;@active-constraints-padding:10px;@commerce-background-image:"/bmfsweb/{cpq-host}/image/{folder-name}/bg.jpg";@commerce-background-size:"cover";@commerce-background-position:center center;@commerce-actionstrip-bgcolor:#fff;@commerce-input-bgcolor:#eeeeee;@commerce-input-color:#000;@commerce-input-border-color:transparent;@commerce-input-padding:8px;@commerce-input-min-height:34px;@commerce-input-border-radius:0px;@commerce-dropdown-max-height:34px;
+
+/* HOME VARIABLES */
+
+@base-path: '/bmfsweb/{cpq-host}/image/{folder-name}'; /*not-editable*/
+
+/*Home: General (1)*/ 
+/*editable*/
+@background-image: "@{base-path}/bg.jpg";
+@logo:"@{base-path}/logo.png";
+@logo-width:555px;
+@logo-height:555px;
+
+/*non-editable*/
+@background-size: "cover";
+@background-position: center center;
+@searchnav-display: none;
+@tabs-display: none;
+
+/*Home: Typo (2)*/
+/*editable*/
+@font-family: 'Montserrat', sans-serif;
+@font-size-base:888px;
+
+/*non-editable*/
+@font-size-small: ceil((@font-size-base * 0.85));
+@font-size-large: ceil((@font-size-base * 1.25));
+@font-size-h3: ceil((@font-size-base * 1.5));
+
+/*General: Colors (3)*/
+/*editable*/
+@primary-color: #009CA5; /*input[text] (input bgColor, picklist bgColor, hovers, help icon, stroke header, action button)*/
+@alternate-color: #fff; /*input[text] (input color, action button alt, picklist arrow)*/
+@tertiary-color:#FF4081; /*input[text] (selected tab)*/
+@gray-base: #000; /*input[text] (general text color)*/
+@warning-color: #a94442;
+
+/*non-editable*/
+@primary-color-light: lighten(@primary-color, 5%);
+@primary-color-dark: darken(@primary-color, 5%);
+
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 46.7%);
+@gray-lighter: lighten(@gray-base, 93.5%);
+@menubar-bgcolor: fade(@primary-color, 10%); 
+
+/*General: Buttons (3)*/
+/*editable*/
+@button-color: @alternate-color;
+@button-bgcolor: @primary-color;
+@button-hover-color: @button-color;
+@button-hover-bgcolor: darken(@button-bgcolor, 10%);
+
+/*non-editable*/
+/*ALTERNATE BUTTON VARIABLES*/
+@button-alternate-color: @primary-color;
+@button-alternate-bgcolor: @alternate-color;
+@button-alternate-hover-color: @button-alternate-color;
+@button-alternate-hover-bgcolor: @button-alternate-bgcolor;
+
+/*LINK BUTTON VARIABLES*/
+@button-link-color: @primary-color;
+@button-link-hover-color: @alternate-color;
+@button-link-bgcolor: transparent;
+@button-link-hover-bgcolor: @primary-color;
+
+
+/* CONFIG VARIABLES */
+
+/*Config: General (1)*/
+/*editable*/
+@maincontent-margin-top:30px;
+@maincontent-width:80%;
+@pricingcontent-display: none; /*<- avaliar o impacto disso */
+@bottombar-display: block; 
+@recommendation-display: block;
+
+/*non-editable*/
+@cfg-background-image: @background-image;
+@cfg-background-size: @background-size;
+@cfg-background-position: @background-position;
+
+@logo-cfg: @logo;
+@logo-cfg-margin:0 auto;
+@logo-cfg-width: @logo-width; 
+@logo-cfg-height: @logo-height;
+@logo-cfg-display: block;
+
+@buttonbar-display: block;
+@buttonstartover-display: block;
+@pipelineviewer-display: none;
+@buttonupdate-display: block;
+
+
+/*Config: Tabs (2)*/
+/*editable*/
+@tabcontent-padding: 15px;
+@tabcontent-bgcolor:#fff;
+@tabstrip-bgcolor:@primary-color-light;
+@tabitem-active-border-bottom-color:@tertiary-color;
+
+/*non-editable*/
+@tabitem-color:@alternate-color;
+@tabitem-hover-bgcolor: lighten(@primary-color, 3%);
+@tabitem-active-color:~"@{alternate-color}!important";
+@tabitem-active-bgcolor:~"@{primary-color}!important";
+
+
+/*Config: Fieldset and Fields (3)*/
+/*editable*/
+@input-bgcolor: fade(@primary-color, 60);
+@input-color: @alternate-color;
+@input-border-color: transparent; 
+@input-padding: 8px;
+@input-min-height:35px;
+@input-border-radius:0px;
+
+
+/*non-editable*/
+/*HEADER & FIELDSET VARIABLES*/
+@groupheader-stroke-color: fade(@alternate-color, 30);
+@groupheader-color: @alternate-color;
+@groupheader-margin:30px;
+@groupheader-font-size:~"@{font-size-h3}!important"; /*excluded*/
+@groupheader-text-transform:uppercase;
+@group-padding: @tabcontent-padding;
+@group-bgcolor : @tabcontent-bgcolor;
+
+/*ATTRIBUTES VARIABLES*/
+@attr-padding: 5px;
+
+/*INPUT VARIABLES*/
+@input-text-align:'left';
+@input-font-size: @font-size-large;
+@input-focus-bgcolor:@input-bgcolor;
+@input-focus-color:@input-color;
+@input-focus-border-color: @input-border-color;
+
+@inputmessage-bgcolor:@gray;
+@inputmessage-color:@alternate-color;
+@inputmessage-border-radius:3px;
+
+/*DROPDOWN VARIABLES*/
+@dropdown-max-height:@input-min-height;
+@dropdown-bgcolor:@input-bgcolor;
+@dropdown-border-color:@input-border-color;
+
+/*DEFAULT PICKLIST (ITEM) VARIABLES*/
+@picklist-mask-bgcolor: fade(@gray, 60%);
+@picklist-padding:10px;
+@picklist-margin: @picklist-padding;
+@picklist-bgcolor:transparent;
+@picklist-border-size:0;
+@picklist-border-color:transparent;
+@picklist-color: @primary-color;
+@picklist-hover-bgcolor: fade(@primary-color, 10%);
+
+@picklist-selected-border-color:transparent;
+@picklist-selected-bgcolor: fade(@primary-color, 50%);
+@picklist-selected-color:@alternate-color;
+
+/*VERTICAL PICKLIST VARIABLES*/
+@picklist-dropdown-bgcolor: @alternate-color;
+@picklist-dropdown-padding: @picklist-padding;
+@picklist-dropdown-border-size: @picklist-border-size;
+@picklist-dropdown-border-color: @picklist-border-color;
+
+/*MAIN PICKLIST VARIABLES*/
+@picklist-large-padding: @picklist-padding * 2;
+@picklist-large-margin-right: @picklist-margin * 2;
+@picklist-large-font-size: @font-size-large;
+@picklist-large-font-weight: 700;
+@picklist-large-selected-bgcolor:@picklist-selected-bgcolor;
+@picklist-large-hover-bgcolor:@picklist-hover-bgcolor;
+
+
+/*Config: Arraylist (4)*/
+/*editable*/
+@arraylist-bgcolor:#fff;
+@arraylist-border-color:@gray-lighter;
+@arraylist-padding:10px;
+
+/*non-editable*/
+
+/*ARRAYLIST GENERAL*/
+@arraylist-overflow:hidden;
+
+/*ARRAYLIST HEADER VARIABLES*/
+@arraylist-header-bgcolor:@arraylist-bgcolor;
+@arraylist-header-font-size: ~"@{font-size-base}!important";
+@arraylist-header-font-weight:500;
+@arraylist-header-color:~"@{gray}!important";
+
+/*ARRAYLIST INPUT VARIABLES*/
+@arraylist-input-padding:@input-padding;
+@arraylist-input-font-size:@font-size-base;
+@arraylist-input-border-radius:@input-border-radius;
+@arraylist-input-bgcolor:@gray-lighter;
+@arraylist-input-color:@gray;
+@arraylist-input-min-height:38px;
+
+
+/* OTHERS VARIABLES */
+
+/*Others: Loader*/
+/*editable*/
+@loader-bgcolor: @alternate-color; 
+@loader-color: @primary-color;
+@loader-overlay-bgcolor: transparent; /*default: rgba(0,0,0,0.5);*/
+@loader-icon: "autorenew"; /*dropdownlist spin icons*/
+@buttonstartover-icon: "restore"; /*dropdownlist with some default options*/
+@buttonupdate-icon: "done"; /*dropdownlist with some default options*/
+@addrow-icon:'add_circle_outline'; /*add_box, add_circle, add_circle_outline*/
+@removerow-icon:'clear'; /*clear, remove_circle, remove_circle_outline*/
+@removerow-icon-color: @warning-color;
+
+/*non-editable*/
+@loader-padding: 15px;
+@loader-size:56px;
+@active-constraints-margin:10px;
+@active-constraints-padding:10px;
+
+
+/* COMMERCE VARIABLES */
+
+/*Commerce: General */
+/*non-editable*/
+@commerce-background-image: @background-image;
+@commerce-background-size: @background-size;
+@commerce-background-position: @background-position;
+
+/*actionstrip*/
+@commerce-actionstrip-bgcolor:#fff;
+
+/*input*/
+@commerce-input-bgcolor: @gray-lighter;
+@commerce-input-color: @gray-base;
+@commerce-input-border-color: transparent; 
+@commerce-input-padding: 8px;
+@commerce-input-min-height:34px;
+@commerce-input-border-radius:0px;
+
+@commerce-dropdown-max-height: @commerce-input-min-height;
+
+/* TRANSACTION LIST VARIABLES */
